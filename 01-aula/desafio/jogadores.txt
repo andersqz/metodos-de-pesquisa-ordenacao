@@ -1,0 +1,11 @@
+Jogador;Time;Nacionalidade
+Lionel Messi;Inter Miami;Argentina
+Cristiano Ronaldo;Al-Nassr;Portugal
+Kylian Mbappé;Real Madrid;França
+Erling Haaland;Manchester City;Noruega
+Vinícius Júnior;Real Madrid;Brasil
+Jude Bellingham;Real Madrid;Inglaterra
+Harry Kane;Bayern de Munique;Inglaterra
+Mohamed Salah;Liverpool;Egito
+Robert Lewandowski;Barcelona;Polônia
+Lamine Yamal;Barcelona;Espanha
