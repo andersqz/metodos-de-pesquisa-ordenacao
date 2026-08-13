@@ -1,0 +1,15 @@
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/bin/Debug/net10.0/03-aula
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/bin/Debug/net10.0/03-aula.deps.json
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/bin/Debug/net10.0/03-aula.runtimeconfig.json
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/bin/Debug/net10.0/03-aula.dll
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/bin/Debug/net10.0/03-aula.pdb
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/obj/Debug/net10.0/03-aula.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/obj/Debug/net10.0/03-aula.AssemblyInfoInputs.cache
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/obj/Debug/net10.0/03-aula.AssemblyInfo.cs
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/obj/Debug/net10.0/03-aula.csproj.CoreCompileInputs.cache
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/obj/Debug/net10.0/03-aula.sourcelink.json
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/obj/Debug/net10.0/03-aula.dll
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/obj/Debug/net10.0/refint/03-aula.dll
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/obj/Debug/net10.0/03-aula.pdb
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/obj/Debug/net10.0/03-aula.genruntimeconfig.cache
+/workspaces/metodos-de-pesquisa-ordenacao/03-aula/obj/Debug/net10.0/ref/03-aula.dll
