@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dev\\metodos-de-pesquisa-ordenacao\\03-aula\\03-aula.csproj": {}
+    "C:\\dev\\metodos-de-pesquisa-ordenacao\\03-aula\\desafio\\desafio.csproj": {}
   },
   "projects": {
-    "C:\\dev\\metodos-de-pesquisa-ordenacao\\03-aula\\03-aula.csproj": {
+    "C:\\dev\\metodos-de-pesquisa-ordenacao\\03-aula\\desafio\\desafio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\metodos-de-pesquisa-ordenacao\\03-aula\\03-aula.csproj",
-        "projectName": "03-aula",
-        "projectPath": "C:\\dev\\metodos-de-pesquisa-ordenacao\\03-aula\\03-aula.csproj",
+        "projectUniqueName": "C:\\dev\\metodos-de-pesquisa-ordenacao\\03-aula\\desafio\\desafio.csproj",
+        "projectName": "desafio",
+        "projectPath": "C:\\dev\\metodos-de-pesquisa-ordenacao\\03-aula\\desafio\\desafio.csproj",
         "packagesPath": "C:\\Users\\laboratorio\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\metodos-de-pesquisa-ordenacao\\03-aula\\obj\\",
+        "outputPath": "C:\\dev\\metodos-de-pesquisa-ordenacao\\03-aula\\desafio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
