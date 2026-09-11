@@ -7,7 +7,6 @@ public class Ordenacao {
     private int qtdComparacao = 0;
 
     public ArrayList<Integer> Bolha(ArrayList<Integer> lista) {
-        
         this.qtdComparacao = 0;
         this.qtdTrocas = 0;
         
@@ -15,7 +14,6 @@ public class Ordenacao {
         boolean houveTroca;
 
         do {
-
             houveTroca = false;
             for (int i = 0; i < lista.size() - 1; i++) {
 
@@ -29,9 +27,8 @@ public class Ordenacao {
                     lista.set(i + 1, temp);
                 }
             }
-            
         } while (houveTroca);
-
+        
         return lista;
     }
 

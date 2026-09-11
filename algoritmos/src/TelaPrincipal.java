@@ -1,5 +1,8 @@
 
+import java.io.File;
 import java.util.ArrayList;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 
 public class TelaPrincipal extends javax.swing.JFrame {
@@ -9,6 +12,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     Ordenacao ordenacao = new Ordenacao();
     private ArrayList<Integer> lista;
     private Arquivo arquivo;
+    String qtdNumeros;
+    String qtdTrocas;
+    String qtdComparacoes;
+    double tempoExecucaoMs;
     
 
     public TelaPrincipal() {
@@ -32,14 +39,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtQtdComparacoes = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtTempo = new javax.swing.JTextField();
+        btnAbrir = new javax.swing.JButton();
+        btnLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Caminho do Arquivo");
+        jLabel1.setText("Caminho e nome do Arquivo");
 
         cmbAlgoritmo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bolha" }));
 
-        jLabel2.setText("Algorítmo");
+        jLabel2.setText("Método de ordenação");
 
         btnExecutar.setText("Executar");
         btnExecutar.addActionListener(this::btnExecutarActionPerformed);
@@ -61,6 +70,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         txtTempo.setEditable(false);
 
+        btnAbrir.setText("Abrir");
+        btnAbrir.addActionListener(this::btnAbrirActionPerformed);
+
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(this::btnLimparActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,11 +85,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtCaminho)
@@ -83,7 +98,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(txtQtdNumeros)
                     .addComponent(txtQtdTrocas)
                     .addComponent(txtQtdComparacoes)
-                    .addComponent(txtTempo))
+                    .addComponent(txtTempo)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAbrir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpar)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -95,11 +114,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(txtCaminho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAbrir)
+                    .addComponent(btnLimpar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbAlgoritmo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(32, 32, 32)
+                .addGap(26, 26, 26)
                 .addComponent(btnExecutar)
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQtdNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -115,7 +138,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtTempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -126,6 +149,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtQtdComparacoesActionPerformed
 
     private void btnExecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExecutarActionPerformed
+        if (txtCaminho.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Selecione um arquivo para ler",
+                    "Atenção!",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        
         String caminho = txtCaminho.getText();
         
         arquivo = new Arquivo(caminho);
@@ -139,11 +171,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             lista = ordenacao.Bolha(lista);
             long tempoFinal = System.nanoTime();
             
-            double tempoExecucaoMs = (tempoFinal - tempoInicial) / 1_000_000.0;
+            tempoExecucaoMs = (tempoFinal - tempoInicial) / 1_000_000.0;
             
-            String qtdNumeros = String.valueOf(lista.size());
-            String qtdTrocas = String.valueOf(ordenacao.getQtdTrocas());
-            String qtdComparacoes = String.valueOf(ordenacao.getQtdComparacao());
+            qtdNumeros = String.valueOf(lista.size());
+            qtdTrocas = String.valueOf(ordenacao.getQtdTrocas());
+            qtdComparacoes = String.valueOf(ordenacao.getQtdComparacao());
             
             txtQtdNumeros.setText(qtdNumeros);
             txtQtdTrocas.setText(qtdTrocas);
@@ -157,6 +189,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnExecutarActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        txtCaminho.setText("");
+        txtQtdNumeros.setText("");
+        txtQtdTrocas.setText("");
+        txtQtdComparacoes.setText("");
+        txtTempo.setText("");
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
+        JFileChooser chooser = new JFileChooser("C:\\Anderson");
+        
+        int resultado = chooser.showOpenDialog(this);
+        
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            File arq = chooser.getSelectedFile();
+            
+            txtCaminho.setText(arq.getAbsolutePath());
+        }  
+    }//GEN-LAST:event_btnAbrirActionPerformed
     
     
     public static void main(String args[]) {
@@ -165,7 +217,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAbrir;
     private javax.swing.JButton btnExecutar;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JComboBox<String> cmbAlgoritmo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

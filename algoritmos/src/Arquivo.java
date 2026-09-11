@@ -19,7 +19,7 @@ public class Arquivo {
     public ArrayList<Integer> leArquivo() {
         lista.clear();
 
-        try (BufferedReader leitor = new BufferedReader(new FileReader(nomeArquivo + ".txt"))) {
+        try (BufferedReader leitor = new BufferedReader(new FileReader(nomeArquivo))) {
 
             String linha;
 

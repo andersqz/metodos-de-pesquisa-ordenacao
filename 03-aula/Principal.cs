@@ -30,60 +30,9 @@ class Ordenacao
         Console.WriteLine("Quantidade trocas: " + qtdTrocas);
     }
 
-    public static void Selecao(List<int> lista)
-    {
-        int posMenor;
-        int tmp;
-        int qtdComparacoes = 0, qtdTrocas = 0;
 
-        for (int i = 0; i < lista.Count() - 1; i++)
-        {
-            posMenor = i;
-            for (int j = i + 1; j < lista.Count(); j++)
-            {
-                qtdComparacoes++;
-                if (lista[j] < lista[posMenor])
-                {
-                    posMenor = j;
-                }
-            }
-            if (i != posMenor)
-            {
-                qtdTrocas++;
-                tmp = lista[i];
-                lista[i] = lista[posMenor];
-                lista[posMenor] = tmp;
-            }
-        }
-        Console.WriteLine("Quantidades comparações: " + qtdComparacoes);
-        Console.WriteLine("Quantidade trocas: " + qtdTrocas);
-    }
 
-    public static void Insercao(List<int> lista)
-    {
-        int i, j;
-        int tmp;
-        int qtdComparacoes = 0, qtdTrocas = 0;
 
-        for (i = 1; i < lista.Count(); i++)
-        {
-            tmp = lista[i];
-            for (j = i - 1; j >= 0; j--)
-            {
-                qtdComparacoes++;
-                if (tmp < lista[j])
-                {
-                    lista[j + 1] = lista[j]; //shift eh trocar para o lado
-                    qtdTrocas++;
-                }
-                else break;
-            }
-            lista[j + 1] = tmp;
-            qtdTrocas++;
-        }
-        Console.WriteLine("Quantidades comparações: " + qtdComparacoes);
-        Console.WriteLine("Quantidade trocas: " + qtdTrocas);
-    }
 
 }
 
